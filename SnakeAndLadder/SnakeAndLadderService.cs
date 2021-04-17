@@ -1,9 +1,8 @@
-﻿using System;
+﻿using SnakeAndLadder.Exceptions;
+using SnakeAndLadder.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using SnakeAndLadder.Exceptions;
-using SnakeAndLadder.Services;
 
 namespace SnakeAndLadder
 {
@@ -11,13 +10,18 @@ namespace SnakeAndLadder
     {
         public SnakeAndLadderService()
         {
+            InitializeGame();
+        }
+
+        private void InitializeGame()
+        {
             //Set up Snakes
             var noOfSnakes = Console.ReadLine().ToInteger();
 
             var listOfSnakeIndices = new List<List<int>>();
             for (int i = 0; i < noOfSnakes; i++)
             {
-                var snakeHeadTail = Console.ReadLine()?.Split(' ').Select(x=>x.ToInteger())?.ToList();
+                var snakeHeadTail = Console.ReadLine()?.Split(' ').Select(x => x.ToInteger())?.ToList();
                 if (snakeHeadTail == null)
                 {
                     Console.WriteLine("Please enter some valid values");
