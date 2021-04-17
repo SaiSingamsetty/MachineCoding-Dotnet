@@ -59,7 +59,7 @@ namespace SnakeAndLadder
                 listOfPlayerNames.Add(Console.ReadLine());
             }
 
-            var game = new GameService(listOfSnakeIndices, listOfLadderIndices, listOfPlayerNames);
+            var game = new GameService(listOfSnakeIndices, listOfLadderIndices, listOfPlayerNames, 30);
             game.StartGame();
         }
     }

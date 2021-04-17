@@ -6,7 +6,7 @@ namespace SnakeAndLadder.Models
 {
     public class Dice
     {
-        private int _count;
+        private readonly int _count;
 
         public Dice(int noOfDices)
         {

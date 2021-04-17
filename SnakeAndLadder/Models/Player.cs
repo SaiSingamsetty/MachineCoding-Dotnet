@@ -2,10 +2,42 @@
 {
     public class Player
     {
-        public string Name { get; set; }
+        private readonly string _name;
 
-        public int CurrentPosition { get; set; }
+        private int _currentPosition;
 
-        public bool DidComplete { get; set; } 
+        private bool _didComplete;
+
+        public Player(string name)
+        {
+            _name = name;
+            _currentPosition = 0;
+            _didComplete = false;
+        }
+        
+        public void SetWinningFlag()
+        {
+            _didComplete = true;
+        }
+
+        public bool DidPlayerCompletedGame()
+        {
+            return _didComplete;
+        }
+
+        public string GetPlayerName()
+        {
+            return _name;
+        }
+
+        public void SetPositionForPlayer(int pos)
+        {
+            _currentPosition = pos;
+        }
+
+        public int GetPlayersCurrentPosition()
+        {
+            return _currentPosition;
+        }
     }
 }

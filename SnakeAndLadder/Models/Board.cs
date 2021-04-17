@@ -6,11 +6,16 @@ namespace SnakeAndLadder.Models
 {
     public class Board
     {
-        public int BoardSize { get; set; }
+        private readonly int _boardSize;
 
+        public int GetEndOfTheBoard()
+        {
+            return _boardSize;
+        }
+        
         public Board(int boardSize)
         {
-            BoardSize = boardSize;
+            _boardSize = boardSize;
         }
     }
 }
