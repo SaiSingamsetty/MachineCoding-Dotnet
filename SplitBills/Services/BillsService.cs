@@ -51,5 +51,29 @@ namespace SplitBills.Services
 
             BillsRepository.BillsData[billId].SetBillStatus(status);
         }
+
+        public void GetSummary(Guid userId)
+        {
+            var billsActive = BillsRepository.BillsData.Where(b =>
+                b.Value.GetBillStatus() == Status.NotSettled &&
+                b.Value.GetSplitGroup().GetUserSharesInTheGroup().Any(y => y.UserId == userId)).Select(y => y.Value);
+
+            var dues = new List<Due>();
+            foreach (var eachBill in billsActive)
+            {
+
+                
+            }
+
+        }
+    }
+
+    public class Due
+    {
+        public Guid UserId { get; set; }
+
+        public int Amount { get; set; }
+
+        public Guid ToUserId { get; set; }
     }
 }

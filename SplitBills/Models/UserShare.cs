@@ -36,6 +36,7 @@ namespace SplitBills.Models
 
         public void AddSettlementToUserShare(Settlement settlement)
         {
+            settlement.Id = Guid.NewGuid();
             _settlements.Add(settlement);
             if (Math.Abs(GetSettledValueTillNow() - _value) == 0 )
             {
