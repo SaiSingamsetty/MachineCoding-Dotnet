@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnakeAndLadder", "SnakeAndLadder\SnakeAndLadder.csproj", "{A6694916-49BD-498C-A6C0-429D3012EBFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitBills", "SplitBills\SplitBills.csproj", "{8F17109A-2DD7-476B-85EA-9560C10F8EF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SplitBills", "SplitBills\SplitBills.csproj", "{8F17109A-2DD7-476B-85EA-9560C10F8EF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitBills.Tests", "SplitBills.Tests\SplitBills.Tests.csproj", "{2C808FC8-28EE-4282-861B-DC707FA379F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8F17109A-2DD7-476B-85EA-9560C10F8EF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F17109A-2DD7-476B-85EA-9560C10F8EF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F17109A-2DD7-476B-85EA-9560C10F8EF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C808FC8-28EE-4282-861B-DC707FA379F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C808FC8-28EE-4282-861B-DC707FA379F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C808FC8-28EE-4282-861B-DC707FA379F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C808FC8-28EE-4282-861B-DC707FA379F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

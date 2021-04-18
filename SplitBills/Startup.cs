@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SplitBills.Services;
+using SplitBills.Services.Interfaces;
 
 namespace SplitBills
 {
@@ -27,6 +28,9 @@ namespace SplitBills
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<INotificationService, NotificationService>();
+            services.AddScoped<IBillsService, BillsService>();
+            services.AddScoped<IUserService, UserService>();
+
             services.AddControllers();
         }
 

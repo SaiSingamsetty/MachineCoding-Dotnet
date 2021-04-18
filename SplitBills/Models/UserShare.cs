@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SplitBills.Models
 {
@@ -9,7 +10,7 @@ namespace SplitBills.Models
 
         private double _value;
 
-        private List<Settlement> _settlements;
+        private readonly List<Settlement> _settlements;
 
         private Status _shareStatus;
 
@@ -23,9 +24,23 @@ namespace SplitBills.Models
             _value = val;
         }
 
+        public double GetSettledValueTillNow()
+        {
+            return _settlements.Select(x=>x.Value).Sum();
+        }
+
         public List<Settlement> GetSettlements()
         {
             return _settlements;
+        }
+
+        public void AddSettlementToUserShare(Settlement settlement)
+        {
+            _settlements.Add(settlement);
+            if (Math.Abs(GetSettledValueTillNow() - _value) == 0 )
+            {
+                SettleUserShare();
+            }
         }
 
         public void SettleUserShare()

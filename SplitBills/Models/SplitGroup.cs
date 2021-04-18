@@ -24,8 +24,22 @@ namespace SplitBills.Models
         public SplitGroup(List<UserShare> userShares)
         {
             _groupId = Guid.NewGuid();
-            _userShares = userShares.ToDictionary(x => x.UserId);
-            //Users = userShares.Select(x => x.UserId).Distinct().ToHashSet();
+
+            //Combine duplicate user shares
+            var userShareMap = new Dictionary<Guid, UserShare>();
+            foreach (var userShare in userShares)
+            {
+                if (userShareMap.ContainsKey(userShare.UserId))
+                {
+                    userShareMap[userShare.UserId].SetUserShareValue(userShareMap[userShare.UserId].GetUserShareValue() + userShare.GetUserShareValue());
+                }
+                else
+                {
+                    userShareMap[userShare.UserId] = userShare;
+                }
+            }
+
+            _userShares = userShareMap;
         }
     }
 }

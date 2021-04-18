@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using SplitBills.Exceptions;
 using SplitBills.Models;
 using SplitBills.Repository;
+using SplitBills.Services.Interfaces;
 
 namespace SplitBills.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         public User RegisterUser(string emailId, string phoneNum, string name)
         {
@@ -34,13 +35,23 @@ namespace SplitBills.Services
             var userData = UserRepository.UserData.FirstOrDefault(x =>
                 x.Value.Email.Equals(emailId, StringComparison.InvariantCultureIgnoreCase)).Value;
             var userShare = billSplitGroup.GetUserSharesInTheGroup().FirstOrDefault(x => x.UserId == userData.UserId);
-            if(settlement.Value > userShare.GetUserShareValue())
+            if (userShare == null)
+            {
+                throw new SplitBillException(400, "NO_USER_SHARE_EXISTS");
+            }
+
+            if (userShare.GetUserShareStatus() == Status.Settled)
+            {
+                throw new SplitBillException(400, "USER_SHARE_ALREADY_SETTLED");
+            }
+
+            if(settlement.Value > userShare.GetUserShareValue() - userShare.GetSettledValueTillNow())
             {
                 throw new SplitBillException(400, "CONTRIBUTION_EXCEEDING_THE_SHARE");
             }
-
-            userShare.GetSettlements().Add(settlement);
-            userShare.Se
+            
+            userShare.AddSettlementToUserShare(settlement);
+            bill.RefreshBillSettlement();
         }
     }
 }

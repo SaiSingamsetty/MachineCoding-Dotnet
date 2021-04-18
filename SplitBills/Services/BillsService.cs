@@ -4,10 +4,11 @@ using SplitBills.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SplitBills.Services.Interfaces;
 
 namespace SplitBills.Services
 {
-    public class BillsService
+    public class BillsService : IBillsService
     {
         private readonly INotificationService _notificationService;
 

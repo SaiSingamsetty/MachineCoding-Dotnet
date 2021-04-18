@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace SplitBills.Models
 {
@@ -33,6 +34,15 @@ namespace SplitBills.Models
         public SplitGroup GetSplitGroup()
         {
             return SplitGroup;
+        }
+
+        public void RefreshBillSettlement()
+        {
+            var allUserShares = SplitGroup.GetUserSharesInTheGroup();
+            if (allUserShares.Where(y=>y.UserId != UserId).All(x => x.GetUserShareStatus() == Status.Settled))
+            {
+                SetBillStatus(Status.Settled);
+            }
         }
 
         public Bill(Guid userId, string title, string description, DateTime billDate, double amount, SplitGroup splitGroup)
