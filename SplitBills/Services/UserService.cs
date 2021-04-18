@@ -34,8 +34,13 @@ namespace SplitBills.Services
             var userData = UserRepository.UserData.FirstOrDefault(x =>
                 x.Value.Email.Equals(emailId, StringComparison.InvariantCultureIgnoreCase)).Value;
             var userShare = billSplitGroup.GetUserSharesInTheGroup().FirstOrDefault(x => x.UserId == userData.UserId);
+            if(settlement.Value > userShare.GetUserShareValue())
+            {
+                throw new SplitBillException(400, "CONTRIBUTION_EXCEEDING_THE_SHARE");
+            }
 
-
+            userShare.GetSettlements().Add(settlement);
+            userShare.Se
         }
     }
 }

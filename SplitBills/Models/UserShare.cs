@@ -7,15 +7,20 @@ namespace SplitBills.Models
     {
         public Guid UserId;
 
-        private readonly double _value;
+        private double _value;
 
-        private readonly List<Settlement> _settlements;
+        private List<Settlement> _settlements;
 
         private Status _shareStatus;
 
         public double GetUserShareValue()
         {
             return _value;
+        }
+
+        public void SetUserShareValue(double val)
+        {
+            _value = val;
         }
 
         public List<Settlement> GetSettlements()
