@@ -10,7 +10,7 @@ namespace SnakeAndLadder.Models
 
         public int GetEndOfTheBoard()
         {
-            return _boardSize;
+            return _boardSize; 
         }
         
         public Board(int boardSize)
