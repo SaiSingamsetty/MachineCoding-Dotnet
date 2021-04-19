@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SplitBills", "SplitBills\Sp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitBills.Tests", "SplitBills.Tests\SplitBills.Tests.csproj", "{2C808FC8-28EE-4282-861B-DC707FA379F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe", "TicTacToe\TicTacToe.csproj", "{BBBCFC56-0986-43A8-80AF-D149014EA157}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2C808FC8-28EE-4282-861B-DC707FA379F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C808FC8-28EE-4282-861B-DC707FA379F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C808FC8-28EE-4282-861B-DC707FA379F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBBCFC56-0986-43A8-80AF-D149014EA157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBBCFC56-0986-43A8-80AF-D149014EA157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBBCFC56-0986-43A8-80AF-D149014EA157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBBCFC56-0986-43A8-80AF-D149014EA157}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
