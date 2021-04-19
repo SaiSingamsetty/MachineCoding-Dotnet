@@ -22,8 +22,9 @@ namespace CabBooking.Easy.Models
             var slot = Slots.FirstOrDefault(x => x.Id == slotId);
             if (slot == null)
             {
-                //TODO
-                throw new Exception();
+                var newSlot = new Slot(slotId);
+                Slots.Add(newSlot);
+                return newSlot;
             }
 
             return slot;
@@ -33,8 +34,7 @@ namespace CabBooking.Easy.Models
         {
             if (slotId > Capacity)
             {
-                //TODO Invalid Slot
-                throw new Exception();
+                throw new Exception("Invalid Slot");
             }
 
             var slot = GetSlotDetails(slotId);
@@ -50,8 +50,7 @@ namespace CabBooking.Easy.Models
         {
             if (slotId > Capacity)
             {
-                //TODO Invalid Slot
-                throw new Exception();
+                throw new Exception("Invalid Slot");
             }
 
             var slot = GetSlotDetails(slotId);

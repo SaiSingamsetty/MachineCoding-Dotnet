@@ -25,5 +25,10 @@ namespace CabBooking.Easy.Models
         {
             ParkedCar = null;
         }
+
+        public bool IsSlotFree()
+        {
+            return ParkedCar == null;
+        }
     }
 }
