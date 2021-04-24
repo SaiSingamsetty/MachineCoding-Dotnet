@@ -18,10 +18,8 @@ namespace DistributedIdGeneration
 
             var areUnique = list.Count == list.Distinct().Count();
             Console.WriteLine("Are Unique ?" + areUnique);
-
-            list = null;
+            
             Console.WriteLine("Hello World!");
-            GC.Collect();
         }
     }
 }
