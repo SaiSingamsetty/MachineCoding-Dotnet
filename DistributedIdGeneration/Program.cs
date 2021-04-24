@@ -11,16 +11,17 @@ namespace DistributedIdGeneration
             var list = new List<long>();
 
             var idGen = new SnowflakeIdGenerator();
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 10000; i++)
             {
-                list.Add(idGen.GenerateId());
+                list.Add(idGen.GenerateId(i));
             }
 
             var areUnique = list.Count == list.Distinct().Count();
-            Console.WriteLine("Are Unique 1000 ?" + areUnique);
+            Console.WriteLine("Are Unique ?" + areUnique);
 
-
+            list = null;
             Console.WriteLine("Hello World!");
+            GC.Collect();
         }
     }
 }
