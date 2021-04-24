@@ -10,6 +10,8 @@ namespace DistributedIdGeneration
         {
             var list = new List<long>();
 
+            Console.WriteLine("Hello World! Started generating Ids..");
+
             var idGen = new SnowflakeIdGenerator();
             for (int i = 0; i < 10000; i++)
             {
@@ -17,9 +19,9 @@ namespace DistributedIdGeneration
             }
 
             var areUnique = list.Count == list.Distinct().Count();
-            Console.WriteLine("Are Unique ?" + areUnique);
+            Console.WriteLine("10000 Ids generated, Are Unique ?" + areUnique);
             
-            Console.WriteLine("Hello World!");
+            Console.ReadKey();
         }
     }
 }
